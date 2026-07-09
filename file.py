@@ -6,12 +6,14 @@ from selenium.webdriver.common.keys import Keys
 a = webdriver.Edge()
 a.maximize_window()
 
-a.get("https://www.youtube.com/")
-
-sb = a.find_element(By.ID, "search")
-sb.send_keys("rick roll")
-sb.send_keys(Keys.ENTER)
-
-t.sleep(500)
+a.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+t.sleep(30)
+un = a.find_element(By.NAME, "username")
+un.send_keys("Admin")
+pa = a.find_element(By.NAME, "password")
+pa.send_keys("admin123")
+login = a.find_element(By.XPATH, "//button[@type='submit']")
+login.click()
+t.sleep(5)
 
 a.quit()
