@@ -1,4 +1,6 @@
 import time as t
+from asyncio import print_call_graph
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -52,3 +54,32 @@ if price==inside_price:
     print("TC_CART_013 passed")
 else:
     print("TC_CART_013 failed")'''
+# TC_CART_014 - Verify Subtotal Calculation
+edge.find_element(By.ID, "add-to-cart-sauce-labs-backpack").click()
+edge.find_element(By.ID, "add-to-cart-sauce-labs-bike-light").click()
+prices = edge.find_elements(By.CLASS_NAME, "inventory_item_price")
+price1 = float(prices[0].text.replace("$", ""))
+price2 = float(prices[1].text.replace("$", ""))
+expected_subtotal = price1 + price2
+edge.find_element(By.CLASS_NAME, "shopping_cart_link").click()
+t.sleep(2)
+
+edge.find_element(By.ID, "checkout").click()
+t.sleep(2)
+edge.find_element(By.ID, "first-name").send_keys("Naveen")
+edge.find_element(By.ID, "last-name").send_keys("Prabu")
+edge.find_element(By.ID, "postal-code").send_keys("636304")
+
+edge.find_element(By.ID, "continue").click()
+t.sleep(2)
+
+item_total = edge.find_element(By.CLASS_NAME, "summary_subtotal_label").text
+
+print(item_total)
+actual_subtotal = float(item_total.replace("Item total: $", ""))
+
+print("Actual Subtotal :", actual_subtotal)
+if expected_subtotal == actual_subtotal:
+    print("TC_CART_014 Passed")
+else:
+    print("TC_CART_014 Failed")
