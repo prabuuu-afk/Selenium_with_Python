@@ -32,7 +32,7 @@ if len(basket)==0:
 else:
     print(len(basket))"""
 #TC_CART_005 remove product from the cart
-edge.find_element(By.ID,"add-to-cart-sauce-labs-backpack").click()
+'''edge.find_element(By.ID,"add-to-cart-sauce-labs-backpack").click()
 edge.find_element(By.CLASS_NAME,"shopping_cart_link").click()
 edge.find_element(By.ID,"remove-sauce-labs-backpack").click()
 bas=edge.find_elements(By.CLASS_NAME,"shopping_cart_badge")
@@ -40,4 +40,15 @@ t.sleep(5)
 if len(bas)==0:
     print("cart is empty")
 else:
-    print(f"cart has {len(bas)} items")
+    print(f"cart has {len(bas)} items")'''
+#TC_CART_013 verify item price
+'''edge.find_element(By.ID,"add-to-cart-sauce-labs-backpack").click()
+price=edge.find_element(By.CLASS_NAME,"inventory_item_price").text
+print(price)
+edge.find_element(By.CLASS_NAME,"shopping_cart_link").click()
+inside_price=edge.find_element(By.CLASS_NAME,"inventory_item_price").text
+print(inside_price)
+if price==inside_price:
+    print("TC_CART_013 passed")
+else:
+    print("TC_CART_013 failed")'''
