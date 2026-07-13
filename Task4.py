@@ -83,3 +83,16 @@ if expected_subtotal == actual_subtotal:
     print("TC_CART_014 Passed")
 else:
     print("TC_CART_014 Failed")
+
+#TC_CART_015 verify tax calculation
+tax = edge.find_element(By.CLASS_NAME, "summary_tax_label").text
+
+print(tax)
+actual_tax = float(tax.replace("Tax: $", ""))
+
+print(actual_tax)
+
+if actual_tax > 0:
+    print("TC_CART_015 Passed")
+else:
+    print("TC_CART_015 Failed")
