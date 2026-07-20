@@ -24,3 +24,7 @@ uns=a.find_element(By.XPATH,"//*[@id='username']").is_selected()#checks if it is
 print(uns)
 unl=a.find_element(By.XPATH,"//*[@id='username']").location#gives its location as x&y coordinates=>{'x': 245, 'y': 1180}
 print(unl)
+from PIL import Image #Pillow module used to import the images from the system(it does not take the screen shot)
+a.save_screenshot(r"D:\Selinium_with_python\screen_shot.png")#save_screenshot module is used to take a screen shot
+x=Image.open(r"D:\Selinium_with_python\screen_shot.png")#this image is opened using pillow module and displayed using Image.show()
+x.show()
