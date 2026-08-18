@@ -9,7 +9,7 @@ t.sleep(5)
 un=a.find_element(By.XPATH,"//*[@id='username']")
 un.send_keys("naveen")
 t.sleep(3)
-print(un.get_attribute("class"))#gets the attribute name
+'''print(un.get_attribute("class"))#gets the attribute name
 print(un.get_attribute("ID"))#gets the attribute name
 print(un.get_attribute("maxlength"))#gets the attribute name
 print(un.get_attribute("placeholder"))#gets the attribute name
@@ -27,4 +27,4 @@ print(unl)
 from PIL import Image #Pillow module used to import the images from the system(it does not take the screen shot)
 a.save_screenshot(r"D:\Selinium_with_python\screen_shot.png")#save_screenshot module is used to take a screen shot
 x=Image.open(r"D:\Selinium_with_python\screen_shot.png")#this image is opened using pillow module and displayed using Image.show()
-x.show()
+x.show()'''
