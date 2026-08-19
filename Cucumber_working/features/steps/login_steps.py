@@ -21,6 +21,11 @@ def enter_invalid_credentials(context):
         "id", "password"
     ).send_keys("wrongpassword")
 
+@when("the user enters valid username and invalid password")
+def enter_val_un_inval_pass(context):
+    context.driver.find_element("id","username").send_keys("tomsmith")
+    context.driver.find_element("id","password").send_keys("wrongpass")
+
 
 @when("the user clicks the Login button")
 def click_login(context):
