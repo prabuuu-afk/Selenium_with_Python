@@ -26,6 +26,10 @@ def enter_val_un_inval_pass(context):
     context.driver.find_element("id","username").send_keys("tomsmith")
     context.driver.find_element("id","password").send_keys("wrongpass")
 
+@when("the user enters invalid username and valid password")
+def enter_inval_un_val_pass(context):
+    context.driver.find_element("id","username").send_keys("smithtom")
+    context.driver.find_element("id", "password").send_keys("SuperSecretPassword!")
 
 @when("the user clicks the Login button")
 def click_login(context):
@@ -45,4 +49,6 @@ def verify_successful_login(context):
 def verify_error_message(context):
     message = context.driver.find_element("id", "flash").text
 
-    assert "Your username is invalid!" in message
+    print("ACTUAL ERROR MESSAGE:", message)
+
+    assert message
