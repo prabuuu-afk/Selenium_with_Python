@@ -1,4 +1,5 @@
 from behave import given, when, then
+import time as t
 
 
 @given("the user opens the login page")
@@ -36,6 +37,7 @@ def click_login(context):
     context.driver.find_element(
         "css selector", "button[type='submit']"
     ).click()
+    t.sleep(3)
 
 
 @then("the user should be successfully logged in")
