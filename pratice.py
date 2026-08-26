@@ -15,5 +15,12 @@ t.sleep(2)
 print("Executed!!!")
 #adding an element into cart
 chrome.find_element(By.XPATH,'//*[@id="add-to-cart-sauce-labs-backpack"]').click()
+chrome.find_element(By.XPATH,'//*[@id="add-to-cart-sauce-labs-bike-light"]').click()
 t.sleep(5)
-print("added 1 element")
+print("added 2 elements")
+#getting into cart
+chrome.find_element(By.XPATH,'//*[@id="shopping_cart_container"]/a').click()
+samp=chrome.find_elements(By.XPATH,'//*[@id="shopping_cart_container"]/a')
+t.sleep(5)
+print("in the cart",end=" ")
+print(len(samp))
