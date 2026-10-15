@@ -53,5 +53,7 @@ t.sleep(2)
 from selenium.webdriver.support.ui import Select
 dropdownlist=Select(chrome.find_element(By.XPATH,'//*[@id="state"]'))
 dropdownlist.select_by_value("NCR")
-chrome.save_screenshot("D:\Selinium_with_python\screenshot.jpg")#takes screen shots and stores in the location we given and the name we have given
+#chrome.save_screenshot(r"D:\Selinium_with_python\screensho.jpg")#takes screen shots and stores in the location we given and the name we have given
+title=chrome.execute_script("return document.title")#uses JS script within the python string to perform the browser
+print(title)
 t.sleep(3)
